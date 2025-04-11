@@ -3,6 +3,7 @@
 building: _bld_
 character:
   - _chr_
+    _character_
     _zombie_
 character_attachment: _chr_attach_
 environment: 
