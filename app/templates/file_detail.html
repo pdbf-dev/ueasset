@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>{{ file.path }}</h3>
+
+<h5 class="mt-3">Current Tags:</h5>
+<ul>
+  {% for tag in file.tags %}
+  <li>{{ tag.name }}</li>
+  {% else %}
+  <li class="text-muted">No tags yet.</li>
+  {% endfor %}
+</ul>
+
+<form method="post" class="mt-4">
+  <div class="input-group">
+    <input type="text" class="form-control" name="tag_name" placeholder="New tag">
+    <button class="btn btn-success">Add Tag</button>
+  </div>
+</form>
+
+<a href="{{ url_for('index') }}" class="btn btn-link mt-3">← Back to assets</a>
+{% endblock %}
