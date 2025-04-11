@@ -9,16 +9,16 @@ file_tags = Table('file_tags', Base.metadata,
 )
 
 class File(Base):
-    __tablename__ = 'file'
+    __tablename__ = 'files'
     id = Column(Integer, primary_key=True)
     path = Column(String, unique=True, index=True)
-    tags = relationship("Tag", secondary=file_tags, back_populates="file")
+    tags = relationship("Tag", secondary=file_tags, back_populates="files")
 
 class Tag(Base):
-    __tablename__ = 'tag'
+    __tablename__ = 'tags'
     id = Column(Integer, primary_key=True)
     name = Column(String, unique=True, index=True)
-    files = relationship("File", secondary=file_tags, back_populates="tag")
+    files = relationship("File", secondary=file_tags, back_populates="tags")
 
 engine = create_engine('sqlite:///tags.db')
 Base.metadata.create_all(engine)
