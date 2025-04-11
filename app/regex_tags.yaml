@@ -1,0 +1,15 @@
+---
+
+building: _bld_
+character:
+  - _chr_
+    _zombie_
+character_attachment: _chr_attach_
+environment: 
+  - _env_
+    _generic_
+prop:
+  - _prop_
+    _item_
+    _wep_
+vehicle: _veh_
