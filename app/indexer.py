@@ -4,9 +4,14 @@ from db import Session, File, Tag
 from yaml import safe_load
 
 
+# App configuration
+with open(f"app/config.yaml", "r") as _f:
+    config = safe_load(_f)
+path_to_files = config["file_archive_path"]
+
 # Tag-to-regex mappings
 with open(f"app/regex_tags.yaml", "r") as _f:
-    tag_regexes =safe_load(_f)
+    tag_regexes = safe_load(_f)
 
 def index_files(base_dir):
     session = Session()
@@ -39,4 +44,4 @@ def index_files(base_dir):
     session.close()
 
 if __name__ == '__main__':
-    index_files('/path/to/assets')
+    index_files(path_to_files)
